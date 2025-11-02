@@ -13,9 +13,11 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# 서버가 작동중인지 확인
 @app.get("/health")
 def health():
     return {"status": "ok"}
+
 
 # 여기서 엔드포인트 묶음 등록
 app.include_router(scan_router, prefix="/api")
